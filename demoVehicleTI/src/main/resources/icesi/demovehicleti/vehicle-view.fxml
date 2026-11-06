@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="control.VehicleController"
+            prefWidth="1050" prefHeight="700">
+
+    <top>
+        <VBox spacing="5" style="-fx-background-color: #EAF1FA;">
+            <padding>
+                <Insets top="20" bottom="20" left="25" right="25"/>
+            </padding>
+            <Label text="Vehicle Registration"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold;"/>
+            <Label text="Register and manage emergency response vehicles."
+                   style="-fx-font-size: 14px;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets top="20" bottom="20" left="25" right="25"/>
+            </padding>
+
+            <TitledPane text="Vehicle Information"
+                        collapsible="false">
+                <content>
+                    <GridPane hgap="15" vgap="15">
+                        <padding>
+                            <Insets top="20" bottom="20"
+                                    left="20" right="20"/>
+                        </padding>
+
+                        <Label text="Vehicle ID:"
+                               GridPane.rowIndex="0"
+                               GridPane.columnIndex="0"/>
+                        <TextField fx:id="idField"
+                                   promptText="V-001"
+                                   GridPane.rowIndex="0"
+                                   GridPane.columnIndex="1"/>
+
+                        <Label text="Vehicle Type:"
+                               GridPane.rowIndex="1"
+                               GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="typeCombo"
+                                  prefWidth="300"
+                                  GridPane.rowIndex="1"
+                                  GridPane.columnIndex="1"/>
+
+                        <Label text="Status:"
+                               GridPane.rowIndex="2"
+                               GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="statusCombo"
+                                  prefWidth="300"
+                                  GridPane.rowIndex="2"
+                                  GridPane.columnIndex="1"/>
+
+                        <Label text="Assigned Incident:"
+                               GridPane.rowIndex="3"
+                               GridPane.columnIndex="0"/>
+                        <TextField fx:id="incidentField"
+                                   promptText="Optional"
+                                   GridPane.rowIndex="3"
+                                   GridPane.columnIndex="1"/>
+
+                        <HBox spacing="12"
+                              GridPane.rowIndex="4"
+                              GridPane.columnIndex="1">
+                            <Button text="Register Vehicle"
+                                    onAction="#registerVehicle"/>
+                            <Button text="Clear"
+                                    onAction="#clearFields"/>
+                            <Button text="Delete Selected"
+                                    onAction="#deleteVehicle"/>
+                        </HBox>
+                    </GridPane>
+                </content>
+            </TitledPane>
+
+            <TitledPane text="Registered Vehicles"
+                        collapsible="false"
+                        VBox.vgrow="ALWAYS">
+                <content>
+                    <VBox spacing="10">
+                        <TextField fx:id="searchField"
+                                   promptText="Search by ID, type or incident..."/>
+
+                        <TableView fx:id="vehicleTable"
+                                   prefHeight="300"
+                                   VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="idColumn"
+                                             text="ID"
+                                             prefWidth="130"/>
+                                <TableColumn fx:id="typeColumn"
+                                             text="Vehicle Type"
+                                             prefWidth="180"/>
+                                <TableColumn fx:id="statusColumn"
+                                             text="Status"
+                                             prefWidth="180"/>
+                                <TableColumn fx:id="incidentColumn"
+                                             text="Assigned Incident"
+                                             prefWidth="220"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </content>
+            </TitledPane>
+
+        </VBox>
+    </center>
+</BorderPane>
+
