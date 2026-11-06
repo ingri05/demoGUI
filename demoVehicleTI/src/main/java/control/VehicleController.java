@@ -8,6 +8,12 @@ import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.Node;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 public class VehicleController {
 
@@ -155,6 +161,26 @@ public class VehicleController {
 
         vehicles.remove(selected);
         clearFields();
+    }
+
+    @FXML
+    private void backToMenu(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "/icesi/demovehicleti/main-menu.fxml"
+                )
+        );
+
+        Scene scene = new Scene(loader.load());
+
+        Stage stage = (Stage) ((Node) event.getSource())
+                .getScene()
+                .getWindow();
+
+        stage.setScene(scene);
+        stage.setTitle("SGMMS - Main Menu");
+        stage.centerOnScreen();
     }
 
     @FXML

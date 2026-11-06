@@ -11,13 +11,14 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
 
         FXMLLoader loader = new FXMLLoader(
-                App.class.getResource("vehicle-view.fxml")
+                App.class.getResource("menu-view.fxml")
         );
 
         Scene scene = new Scene(loader.load());
 
-        stage.setTitle("SGMMS - Vehicle Registration");
+        stage.setTitle("SGMMS - Main Menu");
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 }

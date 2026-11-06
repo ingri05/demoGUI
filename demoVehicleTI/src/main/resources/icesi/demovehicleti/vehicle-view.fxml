@@ -75,6 +75,8 @@
                                     onAction="#clearFields"/>
                             <Button text="Delete Selected"
                                     onAction="#deleteVehicle"/>
+                            <Button text="Back to Menu"
+                                    onAction="#backToMenu"/>
                         </HBox>
                     </GridPane>
                 </content>
