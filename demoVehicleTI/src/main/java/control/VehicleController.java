@@ -168,7 +168,7 @@ public class VehicleController {
 
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource(
-                        "/icesi/demovehicleti/main-menu.fxml"
+                        "/icesi/demovehicleti/menu-view.fxml"
                 )
         );
 
